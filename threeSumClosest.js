@@ -2,7 +2,8 @@
 
 const threeSumClosest = (nums, target) => {
     const sorted = nums.sort((a, b) => a - b) //needs to be sorted for while loop logic
-    let [globalDiff, globalSum] = [Infinity,null] 
+    const sorted = nums.sort((a, b) => a - b) //needs to be sorted for while loop logic
+    let [globalDiff, globalSum] = [Infinity,null]
     //pointer method to reduce O(n^3) to O(n^2)
     for (let i = 0; i < nums.length - 2; i++) {
         let [leftIdx, rightIdx] = [i + 1, nums.length - 1];
@@ -18,7 +19,7 @@ const threeSumClosest = (nums, target) => {
                 return currSum
             }
             //lns 15, 17 are why we need the array to be sorted. gaurentees moving
-            //right pointer left results in a smaller overall sum and moving left 
+            //right pointer left results in a smaller overall sum and moving left
             //pointer right results in a larger overall sum
             if (Math.abs(diff) < globalDiff) {
                 globalDiff = Math.abs(diff);
@@ -27,5 +28,5 @@ const threeSumClosest = (nums, target) => {
         }
     }
         return globalSum
-        
+
     };
