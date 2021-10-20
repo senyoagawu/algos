@@ -4,8 +4,8 @@
 
 -[x] 509: Fibonacci Number
 -[x] 1137: N-th Tribonacci Number,
--[ ] 70: Climbing Stairs,
--[ ] 746: Min Cost Climbing Stairs,
+-[x] 70: Climbing Stairs,
+-[x] 746: Min Cost Climbing Stairs,
 -[ ] 198: House Robber,
 -[ ] 213: House Robber II,
 -[ ] 740: Delete and Earn,
