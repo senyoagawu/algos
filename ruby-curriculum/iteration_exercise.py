@@ -83,12 +83,32 @@ print(prime_factorization(2384912))
 #
 # http://stackoverflow.com/questions/827649/what-is-the-ruby-spaceship-operator
 
-class Array:
-  def bubble_sort(prc):
-    pass
+class List:
+    def __init__(self, iterable):
+        self.iter = list(iterable)
+    def bubble_sort(self, prc):
+        while True:
+            for i, n1 in enumerate(self):
+                swapped = False
+                for j, n2 in enumerate(self):
+                    if j > n1 and prc(n1, n2):
+                        self[i], self[j] = n2, n1
+                        swapped = True
+                        continue
+                    print(i, j, n1, n2)
+                if not swapped:
+                    return self
+                    
 
-  def bubble_sort(prc):
-    pass
+    def bubble_sort_safe(self, prc):
+        copy = self.slice()
+        return copy.bubble_sort(prc)
+
+
+x = List([1,2,3,4])
+
+x.bubble_sort(lambda x,y: x > y)
+
 # ### Substrings and Subwords
 #
 # Write a method, `substrings`, that will take a `String` and return an
