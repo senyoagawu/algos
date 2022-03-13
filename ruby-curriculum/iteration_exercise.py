@@ -88,26 +88,27 @@ class List:
         self.iter = list(iterable)
     def bubble_sort(self, prc):
         while True:
-            for i, n1 in enumerate(self):
-                swapped = False
-                for j, n2 in enumerate(self):
-                    if j > n1 and prc(n1, n2):
-                        self[i], self[j] = n2, n1
+            swapped = False
+            for i, n1 in enumerate(self.iter):
+                for j, n2 in enumerate(self.iter):
+                    if j == i + 1 and prc(n1, n2) and not swapped:
+                        self.iter[i], self.iter[j] = n2, n1
                         swapped = True
-                        continue
-                    print(i, j, n1, n2)
-                if not swapped:
-                    return self
+            if not swapped:
+                return self.iter
                     
 
     def bubble_sort_safe(self, prc):
-        copy = self.slice()
+        copy = List(self.iter)
         return copy.bubble_sort(prc)
 
 
-x = List([1,2,3,4])
-
-x.bubble_sort(lambda x,y: x > y)
+x = List([4,20,3,4,1,8,2,9])
+y = List([4,20,3,4,1,8,2,9])
+print(x.bubble_sort(lambda x,y: x > y))
+print(x.__dict__)
+print(y.bubble_sort_safe(lambda x,y: x > y))
+print(y.__dict__)
 
 # ### Substrings and Subwords
 #
@@ -123,15 +124,29 @@ x.bubble_sort(lambda x,y: x > y)
 # words).
 
 def substrings(string):
-    pass
+    subs = []
+    for i in range(len(string)-1):
+        for j in range(i + 1, len(string)+1):
+            subs.append(string[i:j])
+    return subs
+
+print(substrings("cat")) # ["c", "ca", "cat", "a", "at",
+# "t"]
+
 def subwords(word, dictionary):
-    pass
+    return [w for w in substrings(word) if w in dictionary]
+
+
+print(subwords('cat', ['at', 'a', 'cat']))
 # ### Doubler
 # Write a `doubler` method that takes an array of integers and returns an
 # array with the original elements multiplied by two.
 
 def doubler(array):
-    pass
+    return [i *2 for i in array]
+
+print(doubler([1,5,2,7,4]))
+
 # ### My Each
 # Extend the Array class to include a method named `my_each` that takes a
 # block, calls the block on every element of the array, and then returns
