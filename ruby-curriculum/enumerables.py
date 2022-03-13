@@ -17,10 +17,16 @@ print(rejected)
 def any(arr, callback):
     for a in arr:
         if callback(a):
-            return true
-    return false
+            return True
+    return False
 
 def my_flatten(arr):
+    if type(arr) != list:
+        return arr
+    flattend = []
     for thing in arr:
-        if thing
+        if type(thing) == list:
+            flattend.extend(my_flatten(thing))
+        else:
+            flattend.append(thing)
         
