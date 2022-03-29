@@ -3,8 +3,10 @@
 # Write a method `factors(num)` that returns an array containing all the
 # factors of a given number.
 
+
 def factors(num):
-    return [n for n in range(1,num+1) if num % n == 0]
+    return [n for n in range(1, num + 1) if num % n == 0]
+
 
 print(factors(2))
 print(factors(3))
@@ -17,19 +19,19 @@ def isPrime(n):
         if n % i == 0:
             return False
     return True
-    
-def prime_factorization(n):
-    factors =[]
 
+
+def prime_factorization(n):
+    factors = []
 
     from math import sqrt
+
     def my_reduce(num):
         print(num)
-        for n in range(2, int(sqrt(num))+1):
+        for n in range(2, int(sqrt(num)) + 1):
             if num % n == 0:
-                return (n, num//n)
+                return (n, num // n)
         return None
-    
 
     while not isPrime(n):
         fac, n = my_reduce(n)
@@ -83,9 +85,11 @@ print(prime_factorization(2384912))
 #
 # http://stackoverflow.com/questions/827649/what-is-the-ruby-spaceship-operator
 
+
 class List:
     def __init__(self, iterable):
         self.iter = list(iterable)
+
     def bubble_sort(self, prc):
         while True:
             swapped = False
@@ -96,18 +100,17 @@ class List:
                         swapped = True
             if not swapped:
                 return self.iter
-                    
 
     def bubble_sort_safe(self, prc):
         copy = List(self.iter)
         return copy.bubble_sort(prc)
 
 
-x = List([4,20,3,4,1,8,2,9])
-y = List([4,20,3,4,1,8,2,9])
-print(x.bubble_sort(lambda x,y: x > y))
+x = List([4, 20, 3, 4, 1, 8, 2, 9])
+y = List([4, 20, 3, 4, 1, 8, 2, 9])
+print(x.bubble_sort(lambda x, y: x > y))
 print(x.__dict__)
-print(y.bubble_sort_safe(lambda x,y: x > y))
+print(y.bubble_sort_safe(lambda x, y: x > y))
 print(y.__dict__)
 
 # ### Substrings and Subwords
@@ -123,29 +126,34 @@ print(y.__dict__)
 # `subwords` will accept both a string and a dictionary (an array of
 # words).
 
+
 def substrings(string):
     subs = []
-    for i in range(len(string)-1):
-        for j in range(i + 1, len(string)+1):
+    for i in range(len(string) - 1):
+        for j in range(i + 1, len(string) + 1):
             subs.append(string[i:j])
     return subs
 
-print(substrings("cat")) # ["c", "ca", "cat", "a", "at",
+
+print(substrings("cat"))  # ["c", "ca", "cat", "a", "at",
 # "t"]
+
 
 def subwords(word, dictionary):
     return [w for w in substrings(word) if w in dictionary]
 
 
-print(subwords('cat', ['at', 'a', 'cat']))
+print(subwords("cat", ["at", "a", "cat"]))
 # ### Doubler
 # Write a `doubler` method that takes an array of integers and returns an
 # array with the original elements multiplied by two.
 
-def doubler(array):
-    return [i *2 for i in array]
 
-print(doubler([1,5,2,7,4]))
+def doubler(array):
+    return [i * 2 for i in array]
+
+
+print(doubler([1, 5, 2, 7, 4]))
 
 # ### My Each
 # Extend the Array class to include a method named `my_each` that takes a
@@ -168,9 +176,12 @@ print(doubler([1,5,2,7,4]))
 # p return_value # => [1, 2, 3]
 # ```
 
+
 class Array:
-  def my_each(prc):
-    pass
+    def my_each(prc):
+        pass
+
+
 # ### My Enumerable Methods
 # * Implement new `Array` methods `my_map` and `my_select`. Do
 #   it by monkey-patching the `Array` class. Don't use any of the
@@ -184,13 +195,18 @@ class Array:
 #   (and not the symbol) version. Again, use your `my_each` to define
 #   `my_inject`. Again, do not modify the original array.
 
+
 class Array:
-  def my_map(prc):
-    pass
-  def my_select(prc):
-    pass
-  def my_inject(blk):
-    pass
+    def my_map(prc):
+        pass
+
+    def my_select(prc):
+        pass
+
+    def my_inject(blk):
+        pass
+
+
 # ### Concatenate
 # Create a method that takes in an `Array` of `String`s and uses `inject`
 # to return the concatenation of the strings.
@@ -199,6 +215,7 @@ class Array:
 # concatenate(["Yay ", "for ", "strings!"])
 # # => "Yay for strings!"
 # ```
+
 
 def concatenate(strings):
     pass
